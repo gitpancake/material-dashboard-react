@@ -1,12 +1,13 @@
 {
   "name": "material-dashboard-react",
   "version": "1.9.0",
-  "description": "Material Dashboard React. Coded by Creative Tim",
+  "description": "Blank Matereial-UI Dashboard Kit",
   "private": false,
   "main": "dist/index.js",
   "dependencies": {
     "@material-ui/core": "4.10.0",
     "@material-ui/icons": "4.9.1",
+    "@material-ui/styles": "^4.10.0",
     "chartist": "0.10.1",
     "classnames": "2.2.6",
     "history": "4.10.1",
@@ -33,22 +34,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/creativetimofficial/material-dashboard-react.git"
+    "url": "https://github.com/Signal-Fire/material-dashboard-blank.git"
   },
   "keywords": [],
-  "author": "Creative Tim <hello@creative-tim.com> (https://www.creative-tim.com/)",
+  "author": "Creative Tim <hello@creative-tim.com> (adapted by Henry Pye 06/09/2020)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/creativetimofficial/material-dashboard-react/issues"
+    "url": "https://github.com/Signal-Fire/material-dashboard-blank/issues"
   },
-  "homepage": "https://creativetimofficial.github.io/material-dashboard-react/#/dashboard",
   "optionalDependencies": {
     "@types/googlemaps": "3.39.6",
     "@types/markerclustererplus": "2.1.33",
     "ajv": "6.12.2",
-    "typescript": "3.9.3"
+    "typescript": "^3.9.3"
   },
   "devDependencies": {
+    "@types/jest": "^26.0.13",
+    "@types/node": "^14.6.4",
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-prettier": "3.1.3",
     "gulp": "4.0.2",

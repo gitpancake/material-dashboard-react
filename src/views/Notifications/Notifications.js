@@ -6,15 +6,12 @@ import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 import AddAlert from "@material-ui/icons/AddAlert";
-// core components
-import GridItem from "components/Grid/GridItem.js";
-import GridContainer from "components/Grid/GridContainer.js";
-import Button from "components/CustomButtons/Button.js";
+
 import SnackbarContent from "components/Snackbar/SnackbarContent.js";
 import Snackbar from "components/Snackbar/Snackbar.js";
-import Card from "components/Card/Card.js";
-import CardHeader from "components/Card/CardHeader.js";
-import CardBody from "components/Card/CardBody.js";
+
+import { Card, CardHeader, CardBody } from "components/Card";
+import { Button, Grid, Typography } from "@material-ui/core";
 
 const styles = {
   cardCategoryWhite: {
@@ -23,11 +20,11 @@ const styles = {
       margin: "0",
       fontSize: "14px",
       marginTop: "0",
-      marginBottom: "0"
+      marginBottom: "0",
     },
     "& a,& a:hover,& a:focus": {
-      color: "#FFFFFF"
-    }
+      color: "#FFFFFF",
+    },
   },
   cardTitleWhite: {
     color: "#FFFFFF",
@@ -41,9 +38,9 @@ const styles = {
       color: "#777",
       fontSize: "65%",
       fontWeight: "400",
-      lineHeight: "1"
-    }
-  }
+      lineHeight: "1",
+    },
+  },
 };
 
 const useStyles = makeStyles(styles);
@@ -66,12 +63,12 @@ export default function Notifications() {
       }
     };
   });
-  const showNotification = place => {
+  const showNotification = (place) => {
     switch (place) {
       case "tl":
         if (!tl) {
           setTL(true);
-          setTimeout(function() {
+          setTimeout(function () {
             setTL(false);
           }, 6000);
         }
@@ -79,7 +76,7 @@ export default function Notifications() {
       case "tc":
         if (!tc) {
           setTC(true);
-          setTimeout(function() {
+          setTimeout(function () {
             setTC(false);
           }, 6000);
         }
@@ -87,7 +84,7 @@ export default function Notifications() {
       case "tr":
         if (!tr) {
           setTR(true);
-          setTimeout(function() {
+          setTimeout(function () {
             setTR(false);
           }, 6000);
         }
@@ -95,7 +92,7 @@ export default function Notifications() {
       case "bl":
         if (!bl) {
           setBL(true);
-          setTimeout(function() {
+          setTimeout(function () {
             setBL(false);
           }, 6000);
         }
@@ -103,7 +100,7 @@ export default function Notifications() {
       case "bc":
         if (!bc) {
           setBC(true);
-          setTimeout(function() {
+          setTimeout(function () {
             setBC(false);
           }, 6000);
         }
@@ -111,7 +108,7 @@ export default function Notifications() {
       case "br":
         if (!br) {
           setBR(true);
-          setTimeout(function() {
+          setTimeout(function () {
             setBR(false);
           }, 6000);
         }
@@ -123,33 +120,12 @@ export default function Notifications() {
   return (
     <Card>
       <CardHeader color="primary">
-        <h4 className={classes.cardTitleWhite}>Notifications</h4>
-        <p className={classes.cardCategoryWhite}>
-          Handcrafted by our friends from{" "}
-          <a
-            target="_blank"
-            href="https://material-ui-next.com/?ref=creativetime"
-          >
-            Material UI
-          </a>{" "}
-          and styled by{" "}
-          <a
-            target="_blank"
-            href="https://www.creative-tim.com/?ref=mdr-notifications-page"
-          >
-            Creative Tim
-          </a>
-          . Please checkout the{" "}
-          <a href="#pablo" target="_blank">
-            full documentation
-          </a>
-          .
-        </p>
+        <Typography variant="h4">Notifications</Typography>
       </CardHeader>
       <CardBody>
-        <GridContainer>
-          <GridItem xs={12} sm={12} md={6}>
-            <h5>Notifications Style</h5>
+        <Grid container>
+          <Grid item xs={12} sm={12} md={6}>
+            <Typography variant="h5">Notifications Style</Typography>
             <br />
             <SnackbarContent message={"This is a plain notification"} />
             <SnackbarContent
@@ -168,9 +144,9 @@ export default function Notifications() {
               close
               icon={AddAlert}
             />
-          </GridItem>
-          <GridItem xs={12} sm={12} md={6}>
-            <h5>Notifications States</h5>
+          </Grid>
+          <Grid item xs={12} sm={12} md={6}>
+            <Typography variant="h5">Notifications States</Typography>
             <br />
             <SnackbarContent
               message={
@@ -207,23 +183,23 @@ export default function Notifications() {
               close
               color="primary"
             />
-          </GridItem>
-        </GridContainer>
+          </Grid>
+        </Grid>
         <br />
         <br />
-        <GridContainer justify="center">
-          <GridItem xs={12} sm={12} md={6} style={{ textAlign: "center" }}>
-            <h5>
+        <Grid container justify="center">
+          <Grid item xs={12} sm={12} md={6} style={{ textAlign: "center" }}>
+            <Typography variant="h5">
               Notifications Places
               <br />
               <small>Click to view notifications</small>
-            </h5>
-          </GridItem>
-        </GridContainer>
-        <GridContainer justify="center">
-          <GridItem xs={12} sm={12} md={10} lg={8}>
-            <GridContainer>
-              <GridItem xs={12} sm={12} md={4}>
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid container justify="center">
+          <Grid item xs={12} sm={12} md={10} lg={8}>
+            <Grid containeer>
+              <Grid item xs={12} sm={12} md={4}>
                 <Button
                   fullWidth
                   color="primary"
@@ -235,13 +211,13 @@ export default function Notifications() {
                   place="tl"
                   color="info"
                   icon={AddAlert}
-                  message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
+                  message="An Info alert."
                   open={tl}
                   closeNotification={() => setTL(false)}
                   close
                 />
-              </GridItem>
-              <GridItem xs={12} sm={12} md={4}>
+              </Grid>
+              <Grid item xs={12} sm={12} md={4}>
                 <Button
                   fullWidth
                   color="primary"
@@ -253,13 +229,13 @@ export default function Notifications() {
                   place="tc"
                   color="info"
                   icon={AddAlert}
-                  message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
+                  message="What a notification!"
                   open={tc}
                   closeNotification={() => setTC(false)}
                   close
                 />
-              </GridItem>
-              <GridItem xs={12} sm={12} md={4}>
+              </Grid>
+              <Grid item xs={12} sm={12} md={4}>
                 <Button
                   fullWidth
                   color="primary"
@@ -271,19 +247,19 @@ export default function Notifications() {
                   place="tr"
                   color="info"
                   icon={AddAlert}
-                  message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
+                  message="What a notification!"
                   open={tr}
                   closeNotification={() => setTR(false)}
                   close
                 />
-              </GridItem>
-            </GridContainer>
-          </GridItem>
-        </GridContainer>
-        <GridContainer justify={"center"}>
-          <GridItem xs={12} sm={12} md={10} lg={8}>
-            <GridContainer>
-              <GridItem xs={12} sm={12} md={4}>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid container justify={"center"}>
+          <Grid item xs={12} sm={12} md={10} lg={8}>
+            <Grid container>
+              <Grid item xs={12} sm={12} md={4}>
                 <Button
                   fullWidth
                   color="primary"
@@ -295,13 +271,13 @@ export default function Notifications() {
                   place="bl"
                   color="info"
                   icon={AddAlert}
-                  message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
+                  message="What a notification!"
                   open={bl}
                   closeNotification={() => setBL(false)}
                   close
                 />
-              </GridItem>
-              <GridItem xs={12} sm={12} md={4}>
+              </Grid>
+              <Grid item xs={12} sm={12} md={4}>
                 <Button
                   fullWidth
                   color="primary"
@@ -313,13 +289,13 @@ export default function Notifications() {
                   place="bc"
                   color="info"
                   icon={AddAlert}
-                  message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
+                  message="What a notification!"
                   open={bc}
                   closeNotification={() => setBC(false)}
                   close
                 />
-              </GridItem>
-              <GridItem xs={12} sm={12} md={4}>
+              </Grid>
+              <Grid item xs={12} sm={12} md={4}>
                 <Button
                   fullWidth
                   color="primary"
@@ -331,15 +307,15 @@ export default function Notifications() {
                   place="br"
                   color="info"
                   icon={AddAlert}
-                  message="Welcome to MATERIAL DASHBOARD React - a beautiful freebie for every web developer."
+                  message="What a notification!"
                   open={br}
                   closeNotification={() => setBR(false)}
                   close
                 />
-              </GridItem>
-            </GridContainer>
-          </GridItem>
-        </GridContainer>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
       </CardBody>
     </Card>
   );
