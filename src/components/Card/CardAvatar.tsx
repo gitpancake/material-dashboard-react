@@ -7,6 +7,13 @@ import { makeStyles } from "@material-ui/core";
 
 import { Card } from "@material-ui/core";
 
+interface Props {
+  children: React.ReactNode;
+  profile?: boolean;
+  plain?: boolean;
+  className: string;
+}
+
 const useStyles = makeStyles((theme) => ({
   cardAvatar: {
     "&$cardAvatarProfile img": {
@@ -36,12 +43,7 @@ const useStyles = makeStyles((theme) => ({
   cardAvatarPlain: {},
 }));
 
-const CardAvatar: React.FC<{
-  children: React.ReactNode;
-  profile?: boolean;
-  plain?: boolean;
-  className: string;
-}> = ({ children, profile, plain, className }) => {
+const CardAvatar = ({ children, profile, plain, className }: Props) => {
   const classes = useStyles();
 
   const cardAvatarClasses = classNames({
