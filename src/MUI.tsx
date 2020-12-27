@@ -4,6 +4,10 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 const blackColor = "#555555";
 const greyColor = "#dfdfdf";
 
+interface Props {
+  children: React.ReactChild;
+}
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -90,7 +94,7 @@ const theme = createMuiTheme({
   },
 });
 
-const MUI: React.FC = ({ children }) => {
+const MUI = ({ children }: Props) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 

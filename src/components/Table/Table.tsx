@@ -8,6 +8,18 @@ import TableRow from "@material-ui/core/TableRow";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 
+interface Props {
+  tableHead: string[];
+  tableData: [string[]];
+  tableHeaderColor:
+    | "warning"
+    | "primary"
+    | "danger"
+    | "success"
+    | "info"
+    | "gray";
+}
+
 const useStyles = makeStyles((theme) => ({
   warningTableHeader: {
     color: theme.palette.warning.main,
@@ -68,17 +80,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CustomTable: React.FC<{
-  tableHead: string[];
-  tableData: [string[]];
-  tableHeaderColor:
-    | "warning"
-    | "primary"
-    | "danger"
-    | "success"
-    | "info"
-    | "gray";
-}> = ({ tableHead, tableData, tableHeaderColor = "gray" }) => {
+const CustomTable = ({ tableHead, tableData, tableHeaderColor = "gray" }: Props) => {
   const classes = useStyles();
 
   return (
